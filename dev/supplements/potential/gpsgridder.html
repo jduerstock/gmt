@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>gpsgridder &#8212; GMT 6.0.0_6a82a05_2019.05.28 documentation</title>
+    <title>gpsgridder &#8212; GMT 6.0.0_e3b7b06_2019.06.05 documentation</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
@@ -41,7 +41,7 @@
              accesskey="P">previous</a> </li>
   <li><a href="/projects/gmt/wiki/Documentation">Project Home</a>  &#187;</li>
   
-        <li class="nav-item nav-item-0"><a href="../../index.html">GMT 6.0.0_6a82a05_2019.05.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">GMT 6.0.0_e3b7b06_2019.06.05 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="../../SUP_POTENTIAL.html" accesskey="U">POTENTIAL</a> &#187;</li>
 <li class="right">
@@ -134,7 +134,8 @@ if <strong>-C</strong> or <strong>-C</strong>0 is given.</dd>
 spline coefficients by SVD and eliminate the contribution from all
 eigenvalues whose ratio to the largest eigenvalue is less than <em>value</em>
 [Default uses Gauss-Jordan elimination to solve the linear system
-and fit the data exactly]. Optionally, append <strong>+f</strong><em>file</em> to save the
+and fit the data exactly]. If <em>value</em> is in 0–1 range the we assume
+it is the fraction of eigenvalues to keep.  Optionally, append <strong>+f</strong><em>file</em> to save the
 eigenvalue ratios to the specified file for further analysis.
 If a negative <em>value</em> is given then <strong>+f</strong><em>file</em> is required and
 execution will stop after saving the eigenvalues, i.e., no surface
@@ -355,7 +356,7 @@ doi:10.1007/978-3-319-21578-5_2.</p>
              >previous</a> </li>
   <li><a href="/projects/gmt/wiki/Documentation">Project Home</a>  &#187;</li>
   
-        <li class="nav-item nav-item-0"><a href="../../index.html">GMT 6.0.0_6a82a05_2019.05.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">GMT 6.0.0_e3b7b06_2019.06.05 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="../../SUP_POTENTIAL.html" >POTENTIAL</a> &#187;</li>
 <li class="right">
@@ -374,7 +375,7 @@ doi:10.1007/978-3-319-21578-5_2.</p>
     </div>
 <div class="footer">
     &copy; Copyright 2019, P. Wessel, W. H. F. Smith, R. Scharroo, J. Luis, and F. Wobbe.
-  Last updated on May 29, 2019.
+  Last updated on Jun 06, 2019.
   Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.5.
   <br />Theme based on <a href="http://readthedocs.org/">Read The Docs</a>
 

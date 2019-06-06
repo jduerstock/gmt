@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>earthtide &#8212; GMT 6.0.0_6a82a05_2019.05.28 documentation</title>
+    <title>earthtide &#8212; GMT 6.0.0_e3b7b06_2019.06.05 documentation</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
@@ -41,7 +41,7 @@
              accesskey="P">previous</a> </li>
   <li><a href="/projects/gmt/wiki/Documentation">Project Home</a>  &#187;</li>
   
-        <li class="nav-item nav-item-0"><a href="../../index.html">GMT 6.0.0_6a82a05_2019.05.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">GMT 6.0.0_e3b7b06_2019.06.05 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="../../SUP_POTENTIAL.html" accesskey="U">POTENTIAL</a> &#187;</li>
 <li class="right">
@@ -72,7 +72,7 @@
 <p><strong>gmt earthtide</strong>
 <a class="reference internal" href="#t"><span> <strong>-T</strong></span></a></strong>[<em>min/max</em>/]<em>inc</em>[<strong>+n</strong>] |<a class="reference internal" href="#t"><span> <strong>-T</strong></span></a></strong><em>file</em>|<em>list</em>
 <a class="reference internal" href="#g"><span> <strong>-G</strong></span></a></strong><em>grdfile</em>
-[ <a class="reference internal" href="#c"><span> <strong>-C</strong></span></a></strong><em>components</em> ]
+[ <a class="reference internal" href="#c"><span> <strong>-C</strong></span></a></strong><em>x|e,y|n,z|v</em> ]
 [ <a class="reference internal" href="#i"><span> <strong>-I</strong></span></a></strong><em>increment</em> ]
 [ <a class="reference internal" href="#l"><span> <strong>-L</strong></span></a></strong><em>lon/lat</em> ]
 [ <a class="reference internal" href="#r"><span> <strong>-R</strong></span></a></strong><em>region</em> ]
@@ -90,42 +90,38 @@ The output can be either in the form of a grid or as a table printed to stdout. 
 </div>
 <div class="section" id="required-arguments">
 <h2>Required Arguments<a class="headerlink" href="#required-arguments" title="Permalink to this headline">¶</a></h2>
-<p>Specify either <strong>-G</strong>, <strong>-S</strong> or <strong>-L</strong>.</p>
+<p>Either <strong>-G</strong>, <strong>-S</strong> or <strong>-L</strong></p>
 <dl class="docutils" id="g">
 <dt><strong>-G</strong><em>grdfile</em></dt>
 <dd>Write one or more tide component directly to grids; no table data are written to standard output.
 If more than one component are specified via <strong>-C</strong> then <em>grdfile</em> must contain the format flag %s
 so that we can embed the component code in the file names (<em>n</em> for north; <em>e</em> for east and <em>v</em> for vertical).
-If only one component is selected with <strong>-C</strong> then no code is appended to grid name (and no need to
+If only one component is selected with <strong>-C</strong> than no code is appended to grid name (an no need to
 set the format flag %s). The grid(s) are computed at the time set by <strong>-T</strong>, if that option is used, or
 at the <em>now</em> time calculated in UTC from the computer clock.</dd>
 </dl>
 <dl class="docutils" id="s">
 <dt><strong>-S</strong></dt>
 <dd>Output position of Sun and Moon in geographical coordinates plus distance
-in meters. Output is a Mx7 matrix where M is the number of times (set by <strong>-T</strong>)
-and columns are <em>time, sun_lon, sun_lat, sun_dist moon_lon, moon_lat, moon_dist</em>.</dd>
+in meters. Output is a Mx7 matrix where M is the number of times (set by -T)
+and columns are time, sun_lon, sun_lat, sun_dist moon_lon, moon_lat, moon_dist</dd>
 </dl>
-<dl class="docutils" id="t">
-<dt><strong>-T</strong>[<em>min/max</em>/]<em>inc</em>[<strong>+n</strong>] |<a class="reference internal" href="#t"><span> <strong>-T</strong></span></a></strong><em>file</em>|<em>list</em></dt>
-<dd>Make evenly spaced time-steps from <em>min</em> to <em>max</em> by <em>inc</em>. Append <strong>+n</strong> to indicate <em>inc</em> is
-the number of <em>t</em>-values to produce over the range instead. Append a valid time unit
-(<strong>d</strong>|<strong>h</strong>|<strong>|m</strong>|<strong>|s</strong>) to the increment. If only <em>min</em> is given then
-we use that date and time for the calculations.  If no <strong>-T</strong> is provided get
-current time in UTC from the computer clock. If no <strong>-G</strong> or <strong>-S</strong> are provided then <strong>-T</strong> is interpreted to mean compute
-a time-series at the location specified by <strong>-L</strong>, thus then <strong>-L</strong> becomes mandatory.
-When <strong>-G</strong> and <strong>-T</strong>, only first time T series is considered. Finally, dates may range from 1901 through 2099.</dd>
+<dl class="docutils" id="l">
+<dt><strong>-L</strong><em>lon/lat</em></dt>
+<dd>Geographical coordinate of the location where to compute a time-series. Coordinates are geodetic (ellipsoidal)
+latitude and longitude. GRS80 ellipsoid is used. (Which can be considered equivalent to the WGS84 ellipsoid at
+the sub-millimeter level.)</dd>
 </dl>
 </div>
 <div class="section" id="optional-arguments">
 <h2>Optional Arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils" id="c">
-<dt><strong>-C</strong><em>components</em></dt>
+<dt><strong>-C</strong><em>x|e,y|n,z|v</em></dt>
 <dd>Select which component to write to individual grids. Requires <strong>-G</strong>.
-Append comma-separated codes for available components: <strong>x</strong> or <strong>e</strong> for the east component,
-<strong>y</strong> or <strong>n</strong> for the north component, and <strong>z</strong> or <strong>v</strong> for the vertical component.
-For example, <strong>-Ce</strong>,<strong>v</strong>, will write two grids: one with east and the other with the vertical components.
-If <strong>-G</strong> is set but not <strong>-C</strong> then the default is to write the vertical component only.</dd>
+Append comma-separated codes for available components: <strong>x</strong> or <strong>e</strong> for the east component;
+<strong>y</strong> or <strong>n</strong> for the north component; and <strong>z</strong> or <strong>v</strong> for the vertical component.
+For example, <strong>-C</strong><em>e,v</em>, will write 2 grids. One with east and other with the vertical components.
+If <strong>-G</strong> is set but not <strong>-C</strong> then the default is to write the vertical component.</dd>
 </dl>
 <dl class="docutils" id="i">
 <dt><strong>-I</strong><em>xinc</em>[<em>unit</em>][<strong>+e</strong>|<strong>n</strong>][/<em>yinc</em>[<em>unit</em>][<strong>+e</strong>|<strong>n</strong>]]</dt>
@@ -150,15 +146,18 @@ gridline-registered or pixel-registered grid; see <a class="reference internal" 
 details. Note: if <strong>-R</strong><em>grdfile</em> is used then the grid spacing has
 already been initialized; use <strong>-I</strong> to override the values.</dd>
 </dl>
-<dl class="docutils" id="l">
-<dt><strong>-L</strong><em>lon/lat</em></dt>
-<dd>Geographical coordinate of the location where to compute a time-series. Coordinates are geodetic (ellipsoidal)
-latitude and longitude. GRS80 ellipsoid is used. (Which can be considered equivalent to the WGS84 ellipsoid at
-the sub-millimeter level.)</dd>
-</dl>
 <dl class="docutils" id="r">
 <dt><strong>-R</strong><em>xmin</em>/<em>xmax</em>/<em>ymin</em>/<em>ymax</em>[<strong>+r</strong>][<strong>+u</strong><em>unit</em>] <a class="reference internal" href="../../gmt.html#r-full"><span class="std std-ref">(more …)</span></a></dt>
 <dd>Specify the region of interest. Used only with <strong>-G</strong>. If not set, defaults to <strong>-Rd</strong></dd>
+</dl>
+<dl class="docutils" id="t">
+<dt><strong>-T</strong>[<em>min/max</em>/]<em>inc</em>[<strong>+n</strong>] |<a class="reference internal" href="#t"><span> <strong>-T</strong></span></a></strong><em>file</em>|<em>list</em></dt>
+<dd>Make evenly spaced time-steps from <em>min</em> to <em>max</em> by <em>inc</em>. Append +n to indicate <em>inc</em> is the number of t-values
+to produce over the range instead. Append a valid time unit (d|h|m|s) to the increment. If only <em>min</em> is given then
+we use that date and time for the calculations.  If no <strong>-T</strong> is provided get
+current time in UTC from the computer clock. If no <strong>-G</strong> or <strong>-S</strong> are provided then <strong>-T</strong> is interpreted to mean compute
+a time-series at the location specified by <strong>-L</strong>, thus then <strong>-L</strong> becomes mandatory.
+When <strong>-G</strong> and <strong>-T</strong>, only first time T series is considered. Finally, dates may range from 1901 through 2099.</dd>
 </dl>
 <dl class="docutils">
 <dt><strong>-bo</strong>[<em>ncols</em>][<em>type</em>] <a class="reference internal" href="../../gmt.html#bo-full"><span class="std std-ref">(more …)</span></a></dt>
@@ -195,11 +194,11 @@ any module-specific option (but not the GMT common options), then exits.</dd>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gmt</span> <span class="n">earthtide</span> <span class="o">-</span><span class="n">T2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">18</span><span class="n">T12</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">Gsolid_tide_up</span><span class="o">.</span><span class="n">grd</span>
 </pre></div>
 </div>
-<p>To obtain a one day long time-series, starting at same date, at the -7W, 37N and 1 minute interval, try</p>
+<p>To obtain a one day long time-series, starting at same date, at the -7 <em>W</em>, 37 <em>N</em> and 1 minute interval, try</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gmt</span> <span class="n">earthtide</span> <span class="o">-</span><span class="n">T2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">18</span><span class="n">T</span><span class="o">/</span><span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">19</span><span class="n">T</span><span class="o">/</span><span class="mi">1</span><span class="n">m</span> <span class="o">-</span><span class="n">L</span><span class="o">-</span><span class="mi">7</span><span class="o">/</span><span class="mi">37</span> <span class="o">&gt;</span> <span class="n">solid_tide</span><span class="o">.</span><span class="n">dat</span>
 </pre></div>
 </div>
-<p>To get the Sun and Moon position in geographical coordinates at the <em>current</em> time</p>
+<p>The get the Sun and Moon position in geographical coordinates at the <em>now</em> time</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gmt</span> <span class="n">earthtide</span> <span class="o">-</span><span class="n">S</span>
 </pre></div>
 </div>
@@ -272,7 +271,7 @@ any module-specific option (but not the GMT common options), then exits.</dd>
              >previous</a> </li>
   <li><a href="/projects/gmt/wiki/Documentation">Project Home</a>  &#187;</li>
   
-        <li class="nav-item nav-item-0"><a href="../../index.html">GMT 6.0.0_6a82a05_2019.05.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">GMT 6.0.0_e3b7b06_2019.06.05 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="../../SUP_POTENTIAL.html" >POTENTIAL</a> &#187;</li>
 <li class="right">
@@ -291,7 +290,7 @@ any module-specific option (but not the GMT common options), then exits.</dd>
     </div>
 <div class="footer">
     &copy; Copyright 2019, P. Wessel, W. H. F. Smith, R. Scharroo, J. Luis, and F. Wobbe.
-  Last updated on May 29, 2019.
+  Last updated on Jun 06, 2019.
   Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.5.
   <br />Theme based on <a href="http://readthedocs.org/">Read The Docs</a>
 

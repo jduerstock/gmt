@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>1. The Generic Mapping Tools &#8212; GMT 6.0.0_6a82a05_2019.05.28 documentation</title>
+    <title>1. The Generic Mapping Tools &#8212; GMT 6.0.0_e3b7b06_2019.06.05 documentation</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
@@ -41,7 +41,7 @@
              accesskey="P">previous</a> </li>
   <li><a href="/projects/gmt/wiki/Documentation">Project Home</a>  &#187;</li>
   
-        <li class="nav-item nav-item-0"><a href="index.html">GMT 6.0.0_6a82a05_2019.05.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GMT 6.0.0_e3b7b06_2019.06.05 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="cookbook.html" accesskey="U">Modern Mode</a> &#187;</li>
 <li class="right">
@@ -3862,6 +3862,14 @@ applications only the last transformation is needed.</p>
 <p class="caption"><span class="caption-text">Examples of two user CPTs for the range -0.5 to 3 created from the same master.  One (left) extracted a
 subset of the master before scaling while the other (right) used the entire range.</span></p>
 </div>
+</div>
+<div class="section" id="automatic-cpts">
+<h3>7.20.6. Automatic CPTs<a class="headerlink" href="#automatic-cpts" title="Permalink to this headline">¶</a></h3>
+<p>A few modules (<a class="reference internal" href="grdimage.html"><span class="doc">grdimage</span></a>, <a class="reference internal" href="grdview.html"><span class="doc">grdview</span></a>) that expects a CPT option will
+provide a default CPT if none is provided.  By default, the default CPT is the
+“rainbow” color table, but this is overridden if the user uses the &#64;eart_relief
+(we select “geo”) or &#64;srtm_relief (we select “srtm”) data sets.  After selection,
+these CPTs are read and scaled to match the range of the grid values.</p>
 </div>
 </div>
 <div class="section" id="the-drawing-of-vectors">
@@ -10293,6 +10301,7 @@ colors suitable for categorical plots.</td></tr>
 <li><a class="reference internal" href="#master-dynamic-cpts">7.20.3. Master (dynamic) CPTs</a></li>
 <li><a class="reference internal" href="#cyclic-wrapped-cpts">7.20.4. Cyclic (wrapped) CPTs</a></li>
 <li><a class="reference internal" href="#manipulating-cpts">7.20.5. Manipulating CPTs</a></li>
+<li><a class="reference internal" href="#automatic-cpts">7.20.6. Automatic CPTs</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#the-drawing-of-vectors">7.21. The Drawing of Vectors</a></li>
@@ -10584,7 +10593,7 @@ colors suitable for categorical plots.</td></tr>
              >previous</a> </li>
   <li><a href="/projects/gmt/wiki/Documentation">Project Home</a>  &#187;</li>
   
-        <li class="nav-item nav-item-0"><a href="index.html">GMT 6.0.0_6a82a05_2019.05.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GMT 6.0.0_e3b7b06_2019.06.05 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="cookbook.html" >Modern Mode</a> &#187;</li>
 <li class="right">
@@ -10603,7 +10612,7 @@ colors suitable for categorical plots.</td></tr>
     </div>
 <div class="footer">
     &copy; Copyright 2019, P. Wessel, W. H. F. Smith, R. Scharroo, J. Luis, and F. Wobbe.
-  Last updated on May 29, 2019.
+  Last updated on Jun 06, 2019.
   Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.5.
   <br />Theme based on <a href="http://readthedocs.org/">Read The Docs</a>
 

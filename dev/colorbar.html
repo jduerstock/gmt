@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>colorbar &#8212; GMT 6.0.0_6a82a05_2019.05.28 documentation</title>
+    <title>colorbar &#8212; GMT 6.0.0_e3b7b06_2019.06.05 documentation</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
@@ -41,7 +41,7 @@
              accesskey="P">previous</a> </li>
   <li><a href="/projects/gmt/wiki/Documentation">Project Home</a>  &#187;</li>
   
-        <li class="nav-item nav-item-0"><a href="index.html">GMT 6.0.0_6a82a05_2019.05.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GMT 6.0.0_e3b7b06_2019.06.05 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="PS.html" accesskey="U">Modern Mode Mapping</a> &#187;</li>
 <li class="right">
@@ -166,8 +166,9 @@ flags in the CPT). To specify custom text annotations for
 intervals, you must append ;<em>annotation</em> to each z-slice in the CPT.</dd>
 </dl>
 <dl class="docutils" id="c">
-<dt><strong>-C</strong><em>cpt</em></dt>
-<dd><em>cpt</em> is the CPT to be used. By default all
+<dt><strong>-C</strong>[<em>cpt</em>]</dt>
+<dd><em>cpt</em> is the CPT to be used. If no <em>cpt</em> is appended then we use the
+current CPT.  If no <strong>-C</strong> is given the we read stdin.  By default all
 color changes are annotated. To use a subset, add an extra column to
 the CPT with a L, U, or B to annotate Lower, Upper, or Both
 color segment boundaries (but see <strong>-B</strong>). If not given, the module
@@ -432,7 +433,7 @@ symbol at the left, unless <strong>+n</strong> was used in which case we center 
              >previous</a> </li>
   <li><a href="/projects/gmt/wiki/Documentation">Project Home</a>  &#187;</li>
   
-        <li class="nav-item nav-item-0"><a href="index.html">GMT 6.0.0_6a82a05_2019.05.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GMT 6.0.0_e3b7b06_2019.06.05 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="PS.html" >Modern Mode Mapping</a> &#187;</li>
 <li class="right">
@@ -451,7 +452,7 @@ symbol at the left, unless <strong>+n</strong> was used in which case we center 
     </div>
 <div class="footer">
     &copy; Copyright 2019, P. Wessel, W. H. F. Smith, R. Scharroo, J. Luis, and F. Wobbe.
-  Last updated on May 29, 2019.
+  Last updated on Jun 06, 2019.
   Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.5.
   <br />Theme based on <a href="http://readthedocs.org/">Read The Docs</a>
 
